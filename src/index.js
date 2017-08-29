@@ -47,6 +47,7 @@ class CurrencyInput extends Component {
         delete customProps.allowEmpty;
         delete customProps.prefix;
         delete customProps.suffix;
+        delete customProps.autoFocus;
 
         let initialValue = props.value;
         if (initialValue === null) {
@@ -231,6 +232,7 @@ class CurrencyInput extends Component {
         return (
             <input
                 ref={(input) => { this.theInput = input; }}
+                autoFocus={this.props.autoFocus}
                 type={this.props.inputType}
                 value={this.state.maskedValue}
                 onChange={this.handleChange}
