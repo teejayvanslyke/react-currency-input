@@ -122,6 +122,9 @@ class CurrencyInput extends Component {
         //console.log("normal", selectionStart, selectionEnd);
         node.setSelectionRange(selectionStart, selectionEnd);
 
+        if (this.props.autoFocus) {
+          this.theInput.focus();
+        }
     }
 
 

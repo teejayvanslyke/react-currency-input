@@ -46,7 +46,14 @@ describe('react-currency-input', function(){
 
         before('render and locate element', function() {
             this.renderedComponent = ReactTestUtils.renderIntoDocument(
-                <CurrencyInput decimalSeparator="," thousandSeparator="." precision="3" value="123456789" inputType="tel" />
+                <CurrencyInput
+                  decimalSeparator=","
+                  thousandSeparator="."
+                  precision="3"
+                  value="123456789"
+                  inputType="tel"
+                  id="currencyInput"
+                  autoFocus={true} />
             );
 
             this.inputComponent = ReactTestUtils.findRenderedDOMComponentWithTag(
@@ -61,6 +68,11 @@ describe('react-currency-input', function(){
 
         it('<input> should be of type "tel"', function() {
             expect(this.inputComponent.getAttribute('type')).to.equal('tel')
+        });
+
+        it('should be auto focused', function() {
+          var focusedElement = document.activeElement;
+          expect(focusedElement.getAttribute('id')).to.equal("currencyInput");
         });
     });
 
