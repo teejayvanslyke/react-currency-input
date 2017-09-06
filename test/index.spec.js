@@ -37,7 +37,9 @@ describe('react-currency-input', function(){
             expect(this.inputComponent.getAttribute('type')).to.equal('text')
         });
 
-
+        it('does not auto-focus by default', function() {
+            expect(this.renderedComponent.props.autoFocus).to.be.false
+        });
     });
 
     describe('custom arguments', function(){

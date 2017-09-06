@@ -268,6 +268,7 @@ CurrencyInput.propTypes = {
 CurrencyInput.defaultProps = {
     onChange: function(maskValue, value, event) {/*no-op*/},
     onChangeEvent: function(event, maskValue, value) {/*no-op*/},
+    autoFocus: false,
     value: '0',
     decimalSeparator: '.',
     thousandSeparator: ',',
