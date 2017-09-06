@@ -122,6 +122,9 @@ class CurrencyInput extends Component {
         //console.log("normal", selectionStart, selectionEnd);
         node.setSelectionRange(selectionStart, selectionEnd);
 
+        if (this.props.autoFocus) {
+          this.theInput.focus();
+        }
     }
 
 
@@ -268,6 +271,7 @@ CurrencyInput.propTypes = {
 CurrencyInput.defaultProps = {
     onChange: function(maskValue, value, event) {/*no-op*/},
     onChangeEvent: function(event, maskValue, value) {/*no-op*/},
+    autoFocus: false,
     value: '0',
     decimalSeparator: '.',
     thousandSeparator: ',',
