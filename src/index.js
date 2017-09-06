@@ -117,14 +117,15 @@ class CurrencyInput extends Component {
     componentDidMount(){
         let node = ReactDOM.findDOMNode(this.theInput);
 
+        if (this.props.autoFocus) {
+          this.theInput.focus();
+        }
+
         let selectionEnd = Math.min(node.selectionEnd, this.theInput.value.length - this.props.suffix.length);
         let selectionStart = Math.min(node.selectionStart, selectionEnd);
         //console.log("normal", selectionStart, selectionEnd);
         node.setSelectionRange(selectionStart, selectionEnd);
 
-        if (this.props.autoFocus) {
-          this.theInput.focus();
-        }
     }
 
 
@@ -235,7 +236,6 @@ class CurrencyInput extends Component {
         return (
             <input
                 ref={(input) => { this.theInput = input; }}
-                autoFocus={this.props.autoFocus}
                 type={this.props.inputType}
                 value={this.state.maskedValue}
                 onChange={this.handleChange}
